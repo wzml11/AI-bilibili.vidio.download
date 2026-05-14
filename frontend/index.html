@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI视频下载器</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="app-shell">
+  <main class="home">
+    <section class="hero-card hero-entrance">
+      <div class="hero-copy">
+        <p class="eyebrow">B站下载 AI</p>
+        <h1>更轻松、更智能的视频下载入口</h1>
+
+      </div>
+
+      <div class="input-card">
+        <label for="videoUrl">视频链接</label>
+        <div class="input-row">
+          <input id="videoUrl" type="text" placeholder="粘贴 B 站网页链接 / BV 链接 / 短链接" />
+          <button id="parseBtn" class="btn btn-primary">解析视频</button>
+        </div>
+        <div class="stack-actions" style="margin-top: 12px;">
+          <button id="fetchCookiesBtn" class="btn btn-secondary" type="button">从浏览器获取Cookie</button>
+          <a href="/cookie-helper" class="btn btn-secondary" style="text-align:center;line-height:38px;">Cookie导出助手</a>
+        </div>
+        <p class="hint">当前版本仅支持单个视频链接。获取Cookie后可下载1080P画质。</p>
+      </div>
+    </section>
+
+    <section class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-value" id="favoriteCount">0</span>
+        <span class="stat-label">收藏数量</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="historyCount">0</span>
+        <span class="stat-label">最近浏览</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="summaryState">待解析</span>
+        <span class="stat-label">AI 状态</span>
+      </div>
+    </section>
+
+    <section id="result" class="result-grid hidden">
+      <article class="result-card preview">
+        <div id="cover" class="thumb-placeholder">AI</div>
+        <div class="meta-stack">
+          <span class="badge">解析成功</span>
+          <h2 id="title">-</h2>
+          <p id="author">-</p>
+          <p id="duration">-</p>
+        </div>
+      </article>
+
+      <article class="result-card">
+        <h3>视频简介</h3>
+        <p id="description" class="body-text">-</p>
+      </article>
+
+      <article class="result-card">
+        <h3>操作</h3>
+        <p class="body-text">进入下载页后，再点击一次下载按钮。</p>
+        <div class="stack-actions">
+          <a id="downloadPage" class="btn btn-primary full-width" href="#">进入下载页</a>
+          <button id="favoriteBtn" class="btn btn-secondary full-width" type="button">加入收藏夹</button>
+        </div>
+      </article>
+    </section>
+
+    <section id="summaryArea" class="summary-section hidden">
+      <article class="summary-card">
+        <div class="summary-header">
+          <h3>AI 总结</h3>
+          <div id="summaryStatus" class="summary-status-badge">
+            <span class="status-dot"></span>
+            <span>等待生成</span>
+          </div>
+        </div>
+        
+        <div class="summary-content">
+          <div class="key-points-section">
+            <h4>关键要点</h4>
+            <ul id="keyPoints" class="summary-list"></ul>
+          </div>
+          
+          <div class="tags-section">
+            <h4>标签</h4>
+            <div id="tags" class="tag-row"></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="favoritesPanel" class="favorites-panel hidden">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">收藏夹</p>
+          <h2>已收藏视频</h2>
+        </div>
+        <button id="refreshFavoritesBtn" class="btn btn-secondary" type="button">刷新收藏</button>
+      </div>
+      <div id="favoritesList" class="favorites-grid"></div>
+    </section>
+
+    <section id="historyPanel" class="history-panel hidden">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">最近浏览</p>
+          <h2>视频历史</h2>
+        </div>
+        <button id="refreshHistoryBtn" class="btn btn-secondary" type="button">刷新历史</button>
+      </div>
+      <div id="historyList" class="history-grid"></div>
+    </section>
+
+    <section id="errorBox" class="error-box hidden"></section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

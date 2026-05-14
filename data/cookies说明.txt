@@ -1,0 +1,44 @@
+# 如何获取1080P视频
+
+## 当前情况
+
+B站的1080P视频需要以下条件之一：
+1. 登录B站账号
+2. 拥有B站大会员
+
+## 解决方案
+
+### 方法1：使用浏览器Cookie（推荐）
+
+1. 在浏览器中登录B站账号
+2. 安装浏览器扩展获取Cookie（推荐使用"Get cookies.txt"扩展）
+3. 将Cookie导出为`cookies.txt`文件
+4. 将`cookies.txt`文件放到项目的`data/`目录下
+5. 重新下载视频
+
+### 方法2：使用yt-dlp的浏览器Cookie功能
+
+1. 在浏览器中登录B站账号
+2. 系统会自动尝试从浏览器获取Cookie
+3. 如果失败，请使用方法1
+
+## 格式降级策略
+
+系统会按以下顺序尝试下载视频：
+1. 1080P（需要登录/大会员）
+2. 720P（需要登录/大会员）
+3. 480P（免费）
+4. 最佳可用格式
+
+## 注意事项
+
+- 没有Cookie时，只能下载480P或更低分辨率的视频
+- Cookie文件格式必须是Netscape格式
+- Cookie会过期，需要定期更新
+- 请妥善保管Cookie，不要泄露给他人
+
+## Cookie获取工具推荐
+
+- Chrome扩展："Get cookies.txt"
+- Firefox扩展："Get cookies.txt LOCALLY"
+- 在线工具：https://curlconverter.com/cookies/
